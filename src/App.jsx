@@ -24,6 +24,14 @@ const App = () => {
   const b = 20;
   const name = "Jarmo";
   const age = 65;
+  const increaseByOne = () => setCounter1(counter1 + 1);
+  const decreaseByOne = () => setCounter(counter - 1);
+
+  const setToZero = () => setCounter1(0);
+  const Display = ({ counter }) => <div>{counter}</div>;
+  const Button = ({ onClick, text }) => (
+    <button onClick={onClick}>{text}</button>
+  );
   console.log(now, a + b);
   console.log("rendering...", counter);
   return (
@@ -35,10 +43,14 @@ const App = () => {
       <Hello name="Aaro" age={20 + 5} />
       <Hello name="Pekka" age={30} />
       <Hello name={name} age={age} />
+      <Display counter={counter} />
+      <Button onClick={increaseByOne} text="plus" />
+      <Button onClick={setToZero} text="zero" />
+      <Button onClick={decreaseByOne} text="minus" />
       <div>{counter}</div>
-      <button onClick={() => setCounter1(counter1 + 1)}>plus</button>
+      <button onClick={increaseByOne}>plus</button>
       <div>{counter1}</div>
-      <button onClick={() => setCounter1(0)}>zero</button>
+      <button onClick={setToZero}>zero</button>
     </div>
   );
 };
