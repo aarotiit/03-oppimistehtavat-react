@@ -11,8 +11,12 @@ const Hello = ({ name, age }) => {
   );
 };
 
-const App = (props) => {
-  const { counter } = props;
+import { useState } from "react";
+
+const App = () => {
+  const [counter, setCounter] = useState(0);
+
+  setTimeout(() => setCounter(counter + 1), 1000);
 
   console.log("Hello from component!");
   const now = new Date();
@@ -21,6 +25,7 @@ const App = (props) => {
   const name = "Jarmo";
   const age = 65;
   console.log(now, a + b);
+  console.log("rendering...", counter);
   return (
     <div>
       <p>Hello World! It is {now.toString()}</p>
