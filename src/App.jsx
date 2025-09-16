@@ -15,7 +15,7 @@ import { useState } from "react";
 
 const App = () => {
   const [counter, setCounter] = useState(0);
-
+  const [counter1, setCounter1] = useState(0);
   setTimeout(() => setCounter(counter + 1), 1000);
 
   console.log("Hello from component!");
@@ -36,6 +36,9 @@ const App = () => {
       <Hello name="Pekka" age={30} />
       <Hello name={name} age={age} />
       <div>{counter}</div>
+      <button onClick={() => setCounter1(counter1 + 1)}>plus</button>
+      <div>{counter1}</div>
+      <button onClick={() => setCounter1(0)}>zero</button>
     </div>
   );
 };
