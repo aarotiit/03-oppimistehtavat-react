@@ -1,8 +1,6 @@
-const Hello = (props) => {
-  const { name, age } = props;
+const Hello = ({ name, age }) => {
   const bornYear = () => new Date().getFullYear() - age;
 
-  console.log(props);
   return (
     <div>
       <p>
@@ -13,7 +11,9 @@ const Hello = (props) => {
   );
 };
 
-const App = () => {
+const App = (props) => {
+  const { counter } = props;
+
   console.log("Hello from component!");
   const now = new Date();
   const a = 10;
@@ -30,6 +30,7 @@ const App = () => {
       <Hello name="Aaro" age={20 + 5} />
       <Hello name="Pekka" age={30} />
       <Hello name={name} age={age} />
+      <div>{counter}</div>
     </div>
   );
 };
